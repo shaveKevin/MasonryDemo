@@ -13,6 +13,8 @@
 #import "MasonryViewController.h"
 #import "ConfirmViewController.h"
 #import "AnimationViewController.h"
+#import "CustomListViewController.h"
+
 @interface RootViewController ()
 @property (nonatomic, strong)MASConstraint *height;
 @end
@@ -115,11 +117,13 @@
     /**
      *topMargin rightMargin 举例
      */
-    UIView *greenView = [UIView new];
-    [greenView setBackgroundColor: [UIColor greenColor]];
-    [greenView showPlaceHolder];
-    [self.view addSubview:greenView];
-    [greenView mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *greenButton = [UIButton new];
+    [greenButton setBackgroundColor: [UIColor greenColor]];
+    [greenButton showPlaceHolder];
+    [self.view addSubview:greenButton];
+    greenButton.tag = 1006;
+    [greenButton addTarget:self action:@selector(buttonPressAction:) forControlEvents:UIControlEventTouchUpInside];
+    [greenButton mas_makeConstraints:^(MASConstraintMaker *make) {
         //Magain 的
         make.rightMargin.mas_equalTo(-8);
         make.topMargin.mas_equalTo(20);
@@ -206,6 +210,12 @@
             [self.navigationController pushViewController:confirmVC animated:YES];
         }
             break;
+            
+        case 1006:
+        {
+            CustomListViewController *customListVC = [CustomListViewController new];
+            [self.navigationController pushViewController:customListVC animated:YES];
+        }
             
             
         default:
