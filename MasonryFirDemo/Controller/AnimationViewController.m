@@ -7,8 +7,7 @@
 //
 
 #import "AnimationViewController.h"
-#import "Masonry/Masonry.h"
-#import "MMPlaceHolder.h"
+
 @interface AnimationViewController (){
     /**
      *  左边的按钮

@@ -7,8 +7,7 @@
 //
 
 #import "MasonryViewController.h"
-#import "Masonry/Masonry.h"
-#import "MMPlaceHolder.h"
+
 
 static CGFloat const kDefaultLeftPadding = 5.0f;
 static CGFloat const kDefaultBottomPadding = -5.0f;

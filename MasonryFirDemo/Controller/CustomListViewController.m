@@ -7,10 +7,6 @@
 //
 
 #import "CustomListViewController.h"
-#import "CustomListTableViewCell.h"
-#import "Masonry.h"
-#import "MMPlaceHolder.h"
-#import "SKCustomListModel.h"
 
 static NSString *const cellIdentifier = @"cellIdentifier";
 

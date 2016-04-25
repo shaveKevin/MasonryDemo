@@ -7,8 +7,7 @@
 //
 
 #import "ScrollViewController.h"
-#import "Masonry.h"
-#import "MMPlaceHolder.h"
+
 @interface ScrollViewController ()
 
 @end

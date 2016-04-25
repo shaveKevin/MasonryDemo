@@ -7,9 +7,6 @@
 //
 
 #import "CustomListTableViewCell.h"
-#import "Masonry/Masonry.h"
-#import "MMPlaceHolder.h"
-#import "SKCustomListModel.h"
 
 @interface CustomListTableViewCell ()
 
