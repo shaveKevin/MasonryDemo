@@ -86,11 +86,13 @@
         make.right.mas_equalTo(-20);
     }];
     
-    UIView *redView = [UIView new];
-    redView.backgroundColor = [UIColor redColor];
-    [redView showPlaceHolder];
-    [self.view addSubview:redView];
-    [redView mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *redButton= [UIButton buttonWithType:UIButtonTypeCustom];
+    redButton.backgroundColor = [UIColor redColor];
+    [redButton showPlaceHolder];
+    redButton.tag = 1005;
+    [redButton addTarget:self action:@selector(buttonPressAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:redButton];
+    [redButton mas_makeConstraints:^(MASConstraintMaker *make) {
         //         make.centerX.mas_equalTo(0);
         //         make.centerY.mas_equalTo(0);
         // 这两句等价于
@@ -177,7 +179,7 @@
         {
             AnimationViewController *animVc = [AnimationViewController new];
             [self.navigationController pushViewController:animVc animated:YES];
-
+            
         }
             break;
         case 1003:
@@ -194,11 +196,18 @@
             [self.height activate];
             [UIView animateWithDuration:2.0f animations:^{
                 [self.view layoutIfNeeded];
-
+                
             }];
         }
             break;
-
+        case 1005:
+        {
+            ConfirmViewController *confirmVC = [ConfirmViewController new];
+            [self.navigationController pushViewController:confirmVC animated:YES];
+        }
+            break;
+            
+            
         default:
             break;
     }
