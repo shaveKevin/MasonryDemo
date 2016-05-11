@@ -7,7 +7,7 @@
 //
 
 #import "AnimationViewController.h"
-
+#import "SKLoopCreateViews.h"
 @interface AnimationViewController (){
     /**
      *  左边的按钮
@@ -27,6 +27,10 @@
  *  移动的view
  */
 @property (nonatomic,strong) UIView *moveView;
+/**
+ *  循环创建view
+ */
+@property (nonatomic, strong) SKLoopCreateViews *loopViews;
 
 @end
 
@@ -40,6 +44,14 @@
     [self setUpView];
     [self addConstraints];
     self.navigationItem.title = @"动画 布局视图";
+    self.loopViews = [SKLoopCreateViews new];
+    self.loopViews.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.loopViews];
+    [self.loopViews mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(100);
+        make.left.right.mas_equalTo(0);
+        // make.height.equalTo(@150);
+    }];
 
 }
 - (void)addConstraints {

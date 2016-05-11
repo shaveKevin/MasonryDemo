@@ -16,6 +16,7 @@
 		2C3A956B1CCE6672004C92B0 /* CustomListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A956A1CCE6672004C92B0 /* CustomListTableViewCell.m */; };
 		2C3A956E1CCE66E0004C92B0 /* CustomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A956D1CCE66E0004C92B0 /* CustomListViewController.m */; };
 		2C3A95761CCE67E4004C92B0 /* SKCustomListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A95751CCE67E4004C92B0 /* SKCustomListModel.m */; };
+		2C5180DE1CE2CB80002129FD /* SKLoopCreateViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5180DD1CE2CB80002129FD /* SKLoopCreateViews.m */; };
 		2C9647681CC9B7AD000FA01E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9647671CC9B7AD000FA01E /* main.m */; };
 		2C96476B1CC9B7AD000FA01E /* SKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C96476A1CC9B7AD000FA01E /* SKAppDelegate.m */; };
 		2C9647711CC9B7AD000FA01E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C96476F1CC9B7AD000FA01E /* Main.storyboard */; };
@@ -45,6 +46,8 @@
 		2C3A956F1CCE676F004C92B0 /* MasonryFirDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryFirDemo.pch; sourceTree = "<group>"; };
 		2C3A95741CCE67E4004C92B0 /* SKCustomListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCustomListModel.h; sourceTree = "<group>"; };
 		2C3A95751CCE67E4004C92B0 /* SKCustomListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCustomListModel.m; sourceTree = "<group>"; };
+		2C5180DC1CE2CB80002129FD /* SKLoopCreateViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKLoopCreateViews.h; sourceTree = "<group>"; };
+		2C5180DD1CE2CB80002129FD /* SKLoopCreateViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKLoopCreateViews.m; sourceTree = "<group>"; };
 		2C9647631CC9B7AD000FA01E /* MasonryFirDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasonryFirDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9647671CC9B7AD000FA01E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C9647691CC9B7AD000FA01E /* SKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				2C3A956A1CCE6672004C92B0 /* CustomListTableViewCell.m */,
 				2C3A95581CCE6606004C92B0 /* SKBaseTableViewCell.m */,
 				2C3A95571CCE6606004C92B0 /* SKBaseTableViewCell.h */,
+				2C5180DC1CE2CB80002129FD /* SKLoopCreateViews.h */,
+				2C5180DD1CE2CB80002129FD /* SKLoopCreateViews.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				2C3A95661CCE6611004C92B0 /* AnimationViewController.m in Sources */,
 				2C3A956E1CCE66E0004C92B0 /* CustomListViewController.m in Sources */,
 				2C3A95671CCE6611004C92B0 /* MasonryViewController.m in Sources */,
+				2C5180DE1CE2CB80002129FD /* SKLoopCreateViews.m in Sources */,
 				2C3A95641CCE6611004C92B0 /* ConfirmViewController.m in Sources */,
 				2C3A95651CCE6611004C92B0 /* RootViewController.m in Sources */,
 				2C3A95681CCE6611004C92B0 /* ScrollViewController.m in Sources */,
