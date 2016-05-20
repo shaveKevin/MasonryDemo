@@ -43,11 +43,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUpView];
     [self addConstraints];
-    self.loopViews = [SKLoopCreateViews new];
+    self.loopViews = [[SKLoopCreateViews alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds))];
     self.loopViews.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.loopViews];
     [self.loopViews mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(100);
+        make.bottom.mas_equalTo(-10);
         make.left.right.mas_equalTo(0);
     }];
 

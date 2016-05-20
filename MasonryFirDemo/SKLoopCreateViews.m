@@ -21,6 +21,7 @@
 @implementation SKLoopCreateViews
 
 
+
 - (instancetype)init {
     if (self = [super init]) {
         [self createViews];
@@ -49,15 +50,13 @@
     
 }
 - (void)createViews {
-    
-    self.bounds = [UIScreen mainScreen].bounds;
     NSMutableArray *cells = [NSMutableArray array];
-    NSInteger count = 10;
+    
+    NSInteger count = 5;
     for (NSInteger i = 0; i < count; i++)
     {
         UIView *view = [UIView new];
         view.backgroundColor = [UIColor colorWithRed: i/10.0 green:i/10.0 blue:i/10.0 alpha:1];
-        [view showPlaceHolder];
         [self addSubview:view];
         [cells addObject:view];
     }
@@ -69,10 +68,8 @@
     [self setupviews];
     [super updateConstraints];
 }
-
 #warning 横竖屏切换会有冲突原因是因为横竖屏计算gap的时候横屏计算的是3 竖屏计算的是4 所以两个约束gap不一样会产生冲突。
 -(void)setupviews {
-    
     //宽
     CGFloat cellWidth = 70;
     //一行有几个
@@ -91,7 +88,7 @@
         UIView *cell =  [_cells objectAtIndex:i];
         NSInteger row = i / countPerRow;
         NSInteger column = i % countPerRow;
-        [cell mas_updateConstraints:^(MASConstraintMaker *make) {
+        [cell mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@(row * (gap + cellWidth) + gap));
             make.left.equalTo(@(column * (gap + cellWidth) + gap));
             make.width.equalTo(@(cellWidth));
@@ -100,17 +97,12 @@
             if (i >=self.finalNumber -1) {
                 make.bottom.mas_equalTo(-5);
             }
+            if ((i+1)%countPerRow == 0) {
+                make.right.mas_lessThanOrEqualTo(-gap);
+            }
         }];
     }
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
