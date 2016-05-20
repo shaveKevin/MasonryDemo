@@ -7,7 +7,6 @@
 //
 
 #import "AnimationVC.h"
-#import "SKLoopCreateViews.h"
 @interface AnimationVC (){
     /**
      *  左边的按钮
@@ -27,10 +26,7 @@
  *  移动的view
  */
 @property (nonatomic,strong) UIView *moveView;
-/**
- *  循环创建view
- */
-@property (nonatomic, strong) SKLoopCreateViews *loopViews;
+
 
 @end
 
@@ -43,13 +39,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUpView];
     [self addConstraints];
-    self.loopViews = [[SKLoopCreateViews alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds))];
-    self.loopViews.backgroundColor = [UIColor redColor];
-    [self.view addSubview:self.loopViews];
-    [self.loopViews mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(-10);
-        make.left.right.mas_equalTo(0);
-    }];
+ 
 
 }
 - (void)addConstraints {

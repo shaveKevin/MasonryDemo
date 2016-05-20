@@ -7,12 +7,13 @@
 //
 
 #import "MasonryViewController.h"
+#import "SKLoopCreateViews.h"
 
 
 static CGFloat const kDefaultLeftPadding = 5.0f;
 static CGFloat const kDefaultBottomPadding = -5.0f;
 static CGFloat const kNavigationBarHeight = 64.0f;
-static CGFloat const kDefaultViewHeight = 300.0f;
+static CGFloat const kDefaultViewHeight = 200.0f;
 
 @interface MasonryViewController ()
 
@@ -21,7 +22,10 @@ static CGFloat const kDefaultViewHeight = 300.0f;
 @property (strong, nonatomic) UIView *blackView;
 @property (strong, nonatomic) UIView *redView;
 @property (nonatomic, strong) UIView *containerView;
-
+/**
+ *  循环创建view
+ */
+@property (nonatomic, strong) SKLoopCreateViews *loopViews;
 @end
 
 @implementation MasonryViewController
@@ -32,7 +36,13 @@ static CGFloat const kDefaultViewHeight = 300.0f;
     // Do any additional setup after loading the view.
     [self createViews];
     self.view.backgroundColor = [UIColor whiteColor];
-
+    self.loopViews = [[SKLoopCreateViews alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds))];
+    self.loopViews.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.loopViews];
+    [self.loopViews mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(-10);
+        make.left.right.mas_equalTo(0);
+    }];
 }
 
 - (void)createViews {
