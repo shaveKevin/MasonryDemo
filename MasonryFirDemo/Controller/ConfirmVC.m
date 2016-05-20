@@ -6,32 +6,20 @@
 //  Copyright © 2016年 shavekevin. All rights reserved.
 //
 
-#import "ConfirmViewController.h"
+#import "ConfirmVC.h"
 
-@interface ConfirmViewController ()
+@interface ConfirmVC ()
 
 
 @end
 
-@implementation ConfirmViewController
+@implementation ConfirmVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor  = [UIColor whiteColor];
-    self.navigationItem.title = @"SCrollview 实战";
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    //    UILabel *blueLabel = [UILabel new];
-    //    blueLabel.numberOfLines = 0;
-    //    blueLabel.textColor = [UIColor orangeColor];
-    //    blueLabel.text = [self randomText];
-    //    blueLabel.backgroundColor = [UIColor blueColor];
-    //    [self.view addSubview:blueLabel];
-    //    [blueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.left.mas_equalTo(10);
-    //        make.top.mas_equalTo(100);
-    //        make.right.mas_equalTo(-10);
-    //    }];
+    self.view.backgroundColor = [UIColor whiteColor];
     UIScrollView *contentScrollview = [UIScrollView new];
     self.automaticallyAdjustsScrollViewInsets = NO;
     contentScrollview.backgroundColor = [UIColor redColor];

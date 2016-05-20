@@ -1,14 +1,14 @@
 //
 //  ViewController.h
-//  MasonryFirDemo
+//  MasonryAnimation
 //
-//  Created by shavekevin on 16/4/22.
+//  Created by shavekevin on 16/1/19.
 //  Copyright © 2016年 shavekevin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UIViewController
+@interface AnimationVC : UIViewController
 
 
 @end

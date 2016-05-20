@@ -23,4 +23,9 @@
 
 @property(nonatomic, assign) NSInteger type;
 
+/**
+ *  @brief cellHeight
+ */
+@property (nonatomic, assign) CGFloat cellHeight;
+
 @end

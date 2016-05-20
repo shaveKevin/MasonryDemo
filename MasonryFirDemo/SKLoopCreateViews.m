@@ -10,7 +10,6 @@
 
 @interface SKLoopCreateViews(){
     NSArray *_cells;
-
 }
 
 /**
@@ -53,8 +52,7 @@
     
     self.bounds = [UIScreen mainScreen].bounds;
     NSMutableArray *cells = [NSMutableArray array];
-    
-    NSInteger count = arc4random()%20+1;
+    NSInteger count = 10;
     for (NSInteger i = 0; i < count; i++)
     {
         UIView *view = [UIView new];
@@ -71,6 +69,7 @@
     [self setupviews];
     [super updateConstraints];
 }
+
 #warning 横竖屏切换会有冲突原因是因为横竖屏计算gap的时候横屏计算的是3 竖屏计算的是4 所以两个约束gap不一样会产生冲突。
 -(void)setupviews {
     

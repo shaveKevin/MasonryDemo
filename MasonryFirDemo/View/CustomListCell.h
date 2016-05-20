@@ -8,7 +8,7 @@
 
 #import "SKBaseTableViewCell.h"
 @class SKCustomListModel;
-@interface CustomListTableViewCell : SKBaseTableViewCell
+@interface CustomListCell : SKBaseTableViewCell
 /**
  *  model
  */

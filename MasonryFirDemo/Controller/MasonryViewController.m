@@ -30,11 +30,8 @@ static CGFloat const kDefaultViewHeight = 300.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"Masonry 布局视图";
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-
     [self createViews];
+    self.view.backgroundColor = [UIColor whiteColor];
 
 }
 

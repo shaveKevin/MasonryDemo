@@ -6,11 +6,11 @@
 //  Copyright © 2016年 shavekevin. All rights reserved.
 //
 
-#import "CustomListViewController.h"
+#import "CustomListVC.h"
 
 static NSString *const cellIdentifier = @"cellIdentifier";
 
-@interface CustomListViewController ()
+@interface CustomListVC ()
 <
 UITableViewDataSource,
 UITableViewDelegate
@@ -22,19 +22,17 @@ UITableViewDelegate
 /**
  *  临时cell
  */
-@property (nonatomic, strong) CustomListTableViewCell *tempCell;
+@property (nonatomic, strong) CustomListCell *tempCell;
 
 @end
 
 
-@implementation CustomListViewController
+@implementation CustomListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
-    self.navigationItem.title = @"自定义cell 实战";
-
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsZero);
     }];
@@ -47,7 +45,7 @@ UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CustomListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CustomListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     SKCustomListModel * model = [self.dataSourceArr objectAtIndex:indexPath.row];
     [cell setModel:model];
     [cell layOutViews];
@@ -55,14 +53,16 @@ UITableViewDelegate
     CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  // 0.5 to 1.0,away from white
     CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //0.5 to 1.0,away from black
     cell.contentView.backgroundColor =  [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     SKCustomListModel * model = [self.dataSourceArr objectAtIndex:indexPath.row];
     [self.tempCell setModel:model];
-    return [self.tempCell calculateHeight];
+    if (model.cellHeight <= 0) {
+        return [self.tempCell calculateHeight];
+    }
+    return model.cellHeight;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
@@ -73,11 +73,11 @@ UITableViewDelegate
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[CustomListTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+        [_tableView registerClass:[CustomListCell class] forCellReuseIdentifier:cellIdentifier];
     }
     return _tableView;
 }
--(CustomListTableViewCell *)tempCell {
+- (CustomListCell *)tempCell {
     if (!_tempCell) {
         _tempCell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }

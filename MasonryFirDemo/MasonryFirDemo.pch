@@ -13,11 +13,11 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "Masonry.h"
 #import "MMPlaceHolder.h"
-#import "ScrollViewController.h"
+#import "ScrollViewVC.h"
 #import "MasonryViewController.h"
-#import "ConfirmViewController.h"
-#import "AnimationViewController.h"
-#import "CustomListViewController.h"
-#import "CustomListTableViewCell.h"
+#import "ConfirmVC.h"
+#import "AnimationVC.h"
+#import "CustomListVC.h"
+#import "CustomListCell.h"
 #import "SKCustomListModel.h"
 #endif /* MasonryFirDemo_pch */

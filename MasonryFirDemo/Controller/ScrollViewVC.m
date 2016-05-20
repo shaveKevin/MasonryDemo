@@ -6,19 +6,18 @@
 //  Copyright © 2016年 shavekevin. All rights reserved.
 //
 
-#import "ScrollViewController.h"
+#import "ScrollViewVC.h"
 
-@interface ScrollViewController ()
+@interface ScrollViewVC ()
 
 @end
 
-@implementation ScrollViewController
+@implementation ScrollViewVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = @"Scrollview 布局视图";
     [self setUpUI];
     [self setUpUIButton];
     [self.view setBackgroundColor:[UIColor orangeColor]];
@@ -36,7 +35,6 @@
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(50);
     }];
-    
     UIButton *lastView = nil;
     NSInteger  totalNumber = 10;
     for (NSInteger i = 1; i <= totalNumber; i ++) {

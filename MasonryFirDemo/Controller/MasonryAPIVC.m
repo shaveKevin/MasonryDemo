@@ -6,20 +6,19 @@
 //  Copyright © 2016年 shavekevin. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "MasonryAPIVC.h"
 
-@interface RootViewController ()
+@interface MasonryAPIVC ()
 @property (nonatomic, strong)MASConstraint *height;
 @end
 
-@implementation RootViewController
+@implementation MasonryAPIVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor lightGrayColor];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = @"Masonry简单使用";
+   self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view showPlaceHolder];
     [self createBottomButton];
     [self createViews];
@@ -160,25 +159,7 @@
 - (void)buttonPressAction:(UIButton *)sender {
     //  do some actions
     switch (sender.tag) {
-        case 1001:
-        {
-            MasonryViewController *firstVC = [MasonryViewController new];
-            [self.navigationController pushViewController:firstVC animated:YES];
-        }
-            break;
-        case 1000:
-        {
-            ScrollViewController *scrollVC = [ScrollViewController new];
-            [self.navigationController pushViewController:scrollVC animated:YES];
-        }
-            break;
-        case 1002:
-        {
-            AnimationViewController *animVc = [AnimationViewController new];
-            [self.navigationController pushViewController:animVc animated:YES];
-            
-        }
-            break;
+        
         case 1003:
         {
             [self.height deactivate];
@@ -197,20 +178,6 @@
             }];
         }
             break;
-        case 1005:
-        {
-            ConfirmViewController *confirmVC = [ConfirmViewController new];
-            [self.navigationController pushViewController:confirmVC animated:YES];
-        }
-            break;
-            
-        case 1006:
-        {
-            CustomListViewController *customListVC = [CustomListViewController new];
-            [self.navigationController pushViewController:customListVC animated:YES];
-        }
-            
-            
         default:
             break;
     }
