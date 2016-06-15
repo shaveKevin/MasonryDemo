@@ -36,13 +36,83 @@ UITableViewDelegate
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsZero);
     }];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"滚动到某一行" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    [button setFrame:CGRectMake(200, 30, 100, 30)];
+    button.backgroundColor = [UIColor redColor];
+    [button addTarget:self action:@selector(tap) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSourceArr.count;
 }
+- (void)tap{
+    //让tableview滚动到指定行
+    //. 1. 设置tableview的偏移量
+    /*
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+    CGRect frame = [self.tableView rectForSection:indexPath.section];
+    
+    [self.tableView setContentOffset:CGPointMake(0, frame.origin.y) animated:YES];
+     */
+    /**
+     *  2.首先使用selectRowAtIndexes: 选择行数，scrollview滚动到某个position 就计算这个position position = table row height * index，便得到滚动的位置了
+     */
+   //  UITableViewScrollPositionBottom  滚动到第某section 某row 的底部
+    /*
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]
+     
+                                animated:YES
+     
+                          scrollPosition:UITableViewScrollPositionTop];
+     */
+    /*
+    
+    typedef NS_ENUM(NSInteger, UITableViewScrollPosition) {
+     // 默认
+        UITableViewScrollPositionNone,
+     // 滚动到第某section 某row 的顶部
+        UITableViewScrollPositionTop,
+     //  中间
+        UITableViewScrollPositionMiddle,
+     // 滚动到第某section 某row 的底部
+        UITableViewScrollPositionBottom
+    };
+*/
+    
+// 3. 实现原理同2 这个是scrollview 的滚动效果
+    [ self.tableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:1]
+     
+                           atScrollPosition: UITableViewScrollPositionTop animated: YES ];
+    
+    
+    
+}
 
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *view = [UILabel new];
+    view.frame  =CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 20);
+    
+    {
+        view.backgroundColor = [UIColor orangeColor];
+        view.text = @"2222222";
+    }
+    return view;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        return 20;
+    }
+    return 0;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%ld",indexPath.row);
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     CustomListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -63,8 +133,6 @@ UITableViewDelegate
         return [self.tempCell calculateHeight];
     }
     return model.cellHeight;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 #pragma mark |----- lazy load
