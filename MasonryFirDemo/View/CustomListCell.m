@@ -18,9 +18,7 @@
 
 @property (nonatomic, strong) UILabel * contentLabel;
 
-@property (nonatomic, strong) UIImageView * picImageView;
 
-@property (nonatomic, strong) UIControl * collectionControl;
 
 @property (nonatomic, assign) BOOL has;
 
@@ -29,9 +27,9 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        //这个加上是为了解决约束冲突
-        self.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
-        self.contentView.frame = self.frame;
+//        //这个加上是为了解决约束冲突
+//        self.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
+//        self.contentView.frame = self.frame;
         self.has = NO;
     }
     return self;
@@ -105,7 +103,7 @@
             [make.top.greaterThanOrEqualTo(self.contentLabel.mas_bottom) priorityMedium];
             [make.top.greaterThanOrEqualTo(self.titleLabel.mas_bottom) priorityLow];
             make.right.equalTo(self.contentView.mas_right).offset(-20);
-            make.bottom.equalTo(self.contentView.mas_bottom).offset(-5);
+            make.bottom.equalTo(self.contentView.mas_bottom).offset(-5).priority(MASLayoutPriorityDefaultLow);
             make.width.equalTo(@50);
             make.height.equalTo(@30);
         }];

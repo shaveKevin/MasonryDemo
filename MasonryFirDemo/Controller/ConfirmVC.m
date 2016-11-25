@@ -66,7 +66,10 @@
 }
 
 #pragma mark -  random  color  text and datasource-
-
+- (UIColor *)randomColor {
+    UIColor *color = [UIColor colorWithRed:arc4random()%255/256.0 green:arc4random()%255/256.0  blue:arc4random()%255/256.0  alpha:1.0f];
+    return color;
+}
 - (NSString *)randomText {
     CGFloat length = arc4random() % 50 + 5;
     
@@ -76,10 +79,7 @@
     }
     return str;
 }
-- (UIColor *)randomColor {
-    UIColor *color = [UIColor colorWithRed:arc4random()%255/256.0 green:arc4random()%255/256.0  blue:arc4random()%255/256.0  alpha:1.0f];
-    return color;
-}
+
 //分割字符串
 - (NSString *)separatedString{
     

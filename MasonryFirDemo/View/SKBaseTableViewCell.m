@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -27,9 +28,9 @@
 
 - (void)layOutViews {
     
-    //这个加上是为了解决约束冲突
-    self.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
-    self.contentView.frame = self.frame;
+//    //这个加上是为了解决约束冲突
+//    self.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
+//    self.contentView.frame = self.frame;
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
 }

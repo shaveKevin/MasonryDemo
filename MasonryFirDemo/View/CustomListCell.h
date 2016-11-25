@@ -13,5 +13,7 @@
  *  model
  */
 @property (nonatomic, strong) SKCustomListModel *model;;
+@property (nonatomic, strong) UIImageView * picImageView;
+@property (nonatomic, strong) UIControl * collectionControl;
 
 @end

@@ -46,6 +46,9 @@ UITableViewDelegate
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 5;
+    }
     return self.dataSourceArr.count;
 }
 - (void)tap{
@@ -83,9 +86,9 @@ UITableViewDelegate
 */
     
 // 3. 实现原理同2 这个是scrollview 的滚动效果
-    [ self.tableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:1]
+    [self.tableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow:4 inSection:0]
      
-                           atScrollPosition: UITableViewScrollPositionTop animated: YES ];
+                           atScrollPosition: UITableViewScrollPositionMiddle animated: YES ];
     
     
     
@@ -169,6 +172,17 @@ UITableViewDelegate
         }
     }
     return _dataSourceArr;
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSArray *array  = [self.tableView visibleCells];
+    CustomListCell *cell = array[1];
+   CGRect rect =   [self.view convertRect:cell.picImageView.frame fromView:cell];
+    CGRect rect2 =   [self.view convertRect:cell.collectionControl.frame fromView:cell];
+    NSLog(@"%f",rect.origin.y);
+    NSLog(@"%f",rect2.origin.y);
+
+    
 }
 
 @end
